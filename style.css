@@ -1,0 +1,146 @@
+:root {
+    --bg: #050506;
+    --card: #0d0d0f;
+    --border: #1a1a1e;
+    --accent: #3b82f6;
+    --accent-glow: rgba(59, 130, 246, 0.3);
+    --text-primary: #ffffff;
+    --text-secondary: #71717a;
+    --code: #10b981;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: 'Outfit', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    width: 95%;
+    max-width: 1100px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+    position: relative;
+    z-index: 1;
+}
+
+header {
+    border-left: 4px solid var(--accent);
+    padding-left: 20px;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+}
+
+header h1 span {
+    color: var(--accent);
+}
+
+.config-bar {
+    background: #131316;
+    padding: 15px 25px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid var(--border);
+}
+
+.status-tag {
+    font-size: 0.8rem;
+    color: #10b981;
+    font-weight: 600;
+}
+
+select {
+    background: #050506;
+    color: white;
+    border: 1px solid var(--border);
+    padding: 8px 12px;
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+textarea {
+    width: 100%;
+    height: 420px;
+    background: #050506;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 15px;
+    color: var(--code);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    resize: none;
+    outline: none;
+    transition: 0.3s;
+}
+
+textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+button {
+    flex: 1;
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s;
+    text-transform: uppercase;
+}
+
+.btn-m {
+    background: var(--accent);
+    color: white;
+}
+
+.btn-m:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+.btn-s {
+    background: #1a1a1e;
+    color: white;
+    border: 1px solid var(--border);
+}
+
+.btn-s:hover {
+    background: #252529;
+}
