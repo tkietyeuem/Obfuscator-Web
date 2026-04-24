@@ -3,183 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flux Hub | Premium Lua Obfuscator</title>
-    
+    <title>Lua Obfuscator</title>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Outfit:wght@300;600;800&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --bg: #0a0a0c;
-            --card: #121215;
-            --border: #1f1f23;
-            --accent: #3b82f6;
-            --accent-glow: rgba(59, 130, 246, 0.4);
-            --text-primary: #f4f4f5;
-            --text-secondary: #a1a1aa;
-            --code-color: #34d399;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; cursor: default; }
-        
-        body { 
-            background: var(--bg); 
-            color: var(--text-primary); 
-            font-family: 'Outfit', sans-serif;
-            display: flex; justify-content: center; align-items: center; min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        /* Hiệu ứng ánh sáng nền */
-        body::before {
-            content: ""; position: absolute; width: 400px; height: 400px;
-            background: var(--accent-glow); filter: blur(150px);
-            top: -100px; right: -100px; z-index: -1;
-        }
-
-        .container {
-            width: 95%; max-width: 1150px;
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 24px; padding: 50px;
-            position: relative; box-shadow: 0 40px 100px rgba(0,0,0,0.8);
-        }
-
-        header { text-align: left; margin-bottom: 40px; border-left: 5px solid var(--accent); padding-left: 20px; }
-        header h1 { font-size: 3.2rem; font-weight: 800; letter-spacing: -2px; text-transform: uppercase; line-height: 1; }
-        header h1 span { color: var(--accent); }
-        header p { color: var(--text-secondary); font-size: 1.1rem; margin-top: 8px; opacity: 0.8; }
-
-        .config-bar {
-            display: flex; justify-content: space-between; align-items: center;
-            background: #18181b; padding: 18px 25px; border-radius: 15px; margin-bottom: 25px;
-            border: 1px solid var(--border);
-        }
-
-        .config-item label { color: var(--text-secondary); font-size: 0.75rem; font-weight: 700; margin-right: 12px; letter-spacing: 1px; }
-        
-        select {
-            background: #0a0a0c; color: #fff; border: 1px solid var(--border);
-            padding: 8px 15px; border-radius: 8px; font-family: inherit; outline: none; cursor: pointer;
-        }
-
-        .editor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
-        .editor-container { display: flex; flex-direction: column; gap: 12px; }
-        .label-tag { font-family: 'JetBrains Mono'; font-size: 0.7rem; color: var(--accent); font-weight: 600; letter-spacing: 1px; }
-
-        textarea {
-            width: 100%; height: 480px;
-            background: #070708; border: 1px solid var(--border);
-            border-radius: 16px; padding: 20px;
-            color: var(--code-color); font-family: 'JetBrains Mono', monospace;
-            font-size: 13px; line-height: 1.6; resize: none; outline: none; transition: 0.4s;
-        }
-
-        textarea:focus { border-color: var(--accent); box-shadow: 0 0 25px var(--accent-glow); }
-
-        .footer-actions { display: flex; gap: 20px; margin-top: 35px; }
-
-        button {
-            flex: 1; padding: 18px; border-radius: 14px; font-weight: 700; 
-            text-transform: uppercase; letter-spacing: 1.5px; cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: none; font-family: inherit;
-        }
-
-        .btn-main { background: var(--accent); color: white; box-shadow: 0 10px 30px var(--accent-glow); }
-        .btn-main:hover { transform: translateY(-4px); filter: brightness(1.15); box-shadow: 0 15px 40px var(--accent-glow); }
-        .btn-main:active { transform: translateY(0); }
-
-        .btn-sub { background: #27272a; color: var(--text-primary); border: 1px solid var(--border); }
-        .btn-sub:hover { background: #3f3f46; }
-
-        @media (max-width: 900px) { .editor-grid { grid-template-columns: 1fr; } .container { padding: 30px; } }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-
-<div class="container">
-    <header>
-        <h1>Flux<span>Hub</span></h1>
-        <p>The ultimate virtualization engine for Lua developers.</p>
-    </header>
-
-    <div class="config-bar">
-        <div class="config-item">
-            <label>ENCRYPTION METHOD</label>
-            <select id="obfMode">
-                <option value="base">Standard (Hex-Shift)</option>
-                <option value="vm">Flux VM (Virtualization)</option>
-                <option value="ultra">Luraph Extreme (Full Protection)</option>
-            </select>
+<body oncontextmenu="return false;">
+    <div class="container">
+        <header>
+            <h1>Lua <span>Obfuscator</span></h1>
+            <p>Advanced Script Protection System</p>
+        </header>
+        <div class="config-bar">
+            <div>
+                <select id="m">
+                    <option value="1">Standard</option>
+                    <option value="2">Flux VM</option>
+                    <option value="3">Luraph Extreme</option>
+                </select>
+            </div>
+            <div class="status-tag">STATUS: ENCRYPTION ACTIVE</div>
         </div>
-        <div class="config-item">
-            <span style="font-size: 0.8rem; color: var(--code-color); font-weight: 600;">● ENGINE READY</span>
+        <div class="grid">
+            <textarea id="i" spellcheck="false" placeholder="Paste Lua Script..."></textarea>
+            <textarea id="o" spellcheck="false" placeholder="Encrypted Output..." readonly></textarea>
         </div>
-    </div>
-
-    <div class="editor-grid">
-        <div class="editor-container">
-            <span class="label-tag">>> INPUT_SOURCE_CODE</span>
-            <textarea id="inputArea" spellcheck="false" placeholder="-- Paste your Lua script here..."></textarea>
-        </div>
-        <div class="editor-container">
-            <span class="label-tag">>> PROTECTED_OUTPUT</span>
-            <textarea id="outputArea" spellcheck="false" placeholder="-- Encrypted code will be generated here..." readonly></textarea>
+        <div class="actions">
+            <button class="btn-m" onclick="X()">Encrypt</button>
+            <button class="btn-s" onclick="C()">Copy Result</button>
         </div>
     </div>
-
-    <div class="footer-actions">
-        <button class="btn-main" onclick="fluxObfuscate()">Obfuscate Script</button>
-        <button class="btn-sub" onclick="copyResult()">Copy Result</button>
-    </div>
-</div>
-
-<script>
-    function fluxObfuscate() {
-        const input = document.getElementById('inputArea').value;
-        const mode = document.getElementById('obfMode').value;
-        const output = document.getElementById('outputArea');
-
-        if (!input.trim()) {
-            alert("Error: No source code detected!");
-            return;
-        }
-
-        output.value = "-- [FLUX] Analyzing script logic...\n-- [FLUX] Generating Virtual Machine...";
-        
-        setTimeout(() => {
-            let result = "";
-            const id = "FLX-" + Math.random().toString(36).substr(2, 7).toUpperCase();
-
-            if (mode === "base") {
-                const hex = input.split('').map(c => '\\x' + c.charCodeAt(0).toString(16)).join('');
-                result = `-- Flux Hub | Session: ${id}\nload("${hex}")()`;
-            } 
-            else if (mode === "vm") {
-                const key = 77;
-                const data = input.split('').map(c => c.charCodeAt(0) + key).reverse().join(',');
-                result = `--[[ PROTECTED BY FLUX HUB VM | ID: ${id} ]]\nlocal _d = {${data}}\nlocal _k = ${key}\nlocal _s = ""\nfor i = #_d, 1, -1 do _s = _s .. string.char(_d[i] - _k) end\n(loadstring or load)(_s)()`;
-            } 
-            else {
-                const key = Math.floor(Math.random() * 80) + 20;
-                const encoded = btoa(input.split('').map(c => String.fromCharCode(c.charCodeAt(0) ^ key)).join(''));
-                result = `--[[ FLUX HUB EXTREME (LURAPH STYLE) | ID: ${id} ]]\nlocal _f="${encoded}"\nlocal _k=${key}\nlocal function _d(s) local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/' s=s:gsub('[^'..b..'=]', '') return (s:gsub('.', function(x) if (x == '=') then return '' end local r,f='',(b:find(x)-1) for i=6,1,-1 do r=r..(f%2^i-f%2^(i-1)>0 and '1' or '0') end return r end):gsub('%d%d%d%d%d%d%d%d', function(x) local r=0 for i=1,8 do r=r+(x:sub(i,i)=='1' and 2^(8-i) or 0) end return string.char(r) end)) end\nlocal _r=_d(_f) local _e="" for i=1,#_r do _e=_e..string.char(string.byte(_r,i)~_k) end\n(loadstring or load)(_e)()`;
-            }
-
-            output.value = result;
-        }, 850);
-    }
-
-    function copyResult() {
-        const copyText = document.getElementById('outputArea');
-        if (!copyText.value) return;
-        copyText.select();
-        document.execCommand("copy");
-        
-        const btn = document.querySelector('.btn-sub');
-        btn.innerText = "COPIED!";
-        setTimeout(() => btn.innerText = "COPY RESULT", 2000);
-    }
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>
